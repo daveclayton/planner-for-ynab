@@ -2,9 +2,12 @@ import * as path from "path";
 import { VueLoaderPlugin } from "vue-loader";
 import { fileURLToPath } from "url";
 import webpack from "webpack";
+import dotenv from "dotenv";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+dotenv.config();
 
 export default {
   entry: "./src/main.js",
@@ -25,6 +28,9 @@ export default {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       __VUE_PROD_DEVTOOLS__: JSON.stringify(false),

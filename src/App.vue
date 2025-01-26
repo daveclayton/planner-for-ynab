@@ -60,7 +60,7 @@
 import * as ynab from 'ynab';
 
 // Import our config for YNAB
-import config from './config.json';
+import config from './config';
 
 // Import Our Components to Compose Our App
 import Nav from './components/Nav.vue';
